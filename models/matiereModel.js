@@ -5,19 +5,20 @@ const matiereSchema = new mongoose.Schema(
     nom: {
       type: String,
       required: true,
+      unique: true,
       trim: true
     },
-    Parcours: {
+    parcours_id: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "Parcours",
       required: true
     },
-    Nature: {
+    nature: {
       type: String,
       required: true,
       trim: true
     },
-    Charge: {
+    charge: {
       type: Number,
       required: true
     },

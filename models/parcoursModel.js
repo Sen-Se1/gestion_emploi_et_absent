@@ -2,12 +2,13 @@ const mongoose = require("mongoose");
 
 const parcoursSchema = new mongoose.Schema(
   {
-    Nom: {
+    nom: {
       type: String,
       required: true,
+      unique: true,
       trim: true
     },
-    Departement_id: {
+    departement_id: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "Departement",
       required: true

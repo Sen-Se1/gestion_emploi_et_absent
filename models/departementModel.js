@@ -2,14 +2,16 @@ const mongoose = require("mongoose");
 
 const departementSchema = new mongoose.Schema(
   {
-    Nom: {
+    nom: {
       type: String,
       required: true,
+      unique: true,
       trim: true
     },
-    Directeur_id: {
+    directeur_id: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: "Utilisateur"
+      ref: "Utilisateur",
+      required: true
     },
   },
   {

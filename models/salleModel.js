@@ -5,6 +5,7 @@ const salleSchema = new mongoose.Schema(
     nom: {
       type: String,
       required: true,
+      unique: true,
       trim: true
     },
     type: {

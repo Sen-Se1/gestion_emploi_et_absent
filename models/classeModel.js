@@ -5,6 +5,7 @@ const classeSchema = new mongoose.Schema(
     nom: {
       type: String,
       required: true,
+      unique: true,
       trim: true
     },
     annee_academique: {
@@ -12,7 +13,7 @@ const classeSchema = new mongoose.Schema(
       required: true,
       trim: true
     },
-    Parcours: {
+    parcours_id: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "Parcours",
       required: true
