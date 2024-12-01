@@ -41,7 +41,7 @@ exports.getMatiereById = asyncHandler(async (req, res, next) => {
     const matiere = await Matiere.findById(id).populate("parcours_id", "nom");
 
     if (!matiere) {
-        return next(new ApiError(`No Matiere found for id: ${id}`, 404));
+        return next(new ApiError(`Aucun Matiere trouvé pour l'identifiant: ${id}`, 404));
     }
 
     res.status(200).json({ data: matiere });
@@ -68,7 +68,7 @@ exports.updateMatiere = asyncHandler(async (req, res, next) => {
     }).populate("parcours_id", "nom");
 
     if (!matiere) {
-        return next(new ApiError(`No Matiere found for id: ${id}`, 404));
+        return next(new ApiError(`Aucun Matiere trouvé pour l'identifiant: ${id}`, 404));
     }
 
     res.status(200).json({ data: matiere });
@@ -83,7 +83,7 @@ exports.deleteMatiere = asyncHandler(async (req, res, next) => {
     const matiere = await Matiere.findByIdAndDelete(id);
 
     if (!matiere) {
-        return next(new ApiError(`No Matiere found for id: ${id}`, 404));
+        return next(new ApiError(`Aucun Matiere trouvé pour l'identifiant: ${id}`, 404));
     }
 
     res.status(204).send();

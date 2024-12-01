@@ -12,9 +12,10 @@ const inscriptionClasseSchema = new mongoose.Schema(
       ref: "Utilisateur",
       required: true
     },
-    date_inscription: {
-      type: Date,
-      required: true
+    annee_inscription: {
+      type: String,
+      required: true,
+      trim: true
     },
   },
   {
@@ -25,4 +26,4 @@ const inscriptionClasseSchema = new mongoose.Schema(
 
 const InscriptionClasse = mongoose.model("InscriptionClasse", inscriptionClasseSchema);
 
-module.exports = InscriptionClasse;
+module.exports = InscriptionClasse; 
