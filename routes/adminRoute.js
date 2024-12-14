@@ -10,6 +10,7 @@ const {
     addNewUser,
     getAllEtudiants,
     getAllEnseignants,
+    getAllDirecteurs,
     getByIdEtudiantEnseignant,
     updateEtudiantEnseignant,
     updatePwdEtudiantEnseignant,
@@ -35,6 +36,13 @@ router.get(
     protect,
     allowedTo("Admin"),
     getAllEnseignants
+);
+
+router.get(
+    "/directeur",
+    protect,
+    allowedTo("Admin"),
+    getAllDirecteurs
 );
 
 // admin can't get, update or delete yourself in this case

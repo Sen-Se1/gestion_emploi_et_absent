@@ -85,7 +85,7 @@ exports.forgotPassword = asyncHandler(async (req, res, next) => {
     await utilisateur.save();
 
     const resetUrl = `${req.protocol}://${req.get('host')}/user/resetPassword/${resetToken}`;
-    console.log(resetUrl);
+    console.log('hhhhh',resetToken);
 
     // const resetUrl = `${req.protocol}://stage-2-front-end.vercel.app/reset-password/${resetToken}`;
     const message = `<h4>Salut ${utilisateur.nom}</h4>Nous avons reçu une demande de réinitialisation

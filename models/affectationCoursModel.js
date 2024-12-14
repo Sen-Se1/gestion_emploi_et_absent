@@ -7,12 +7,12 @@ const affectationCoursSchema = new mongoose.Schema(
       ref: "Enseignant",
       required: true
     },
-    Matieres: {
+    matieres: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "Matiere",
       required: true
     },
-    ChargeEdu: {
+    charge_edu: {
       type: Number,
       required: true
     },
@@ -20,7 +20,7 @@ const affectationCoursSchema = new mongoose.Schema(
       type: Number,
       required: true
     },
-    Semestre: {
+    semestre: {
       type: Number,
       required: true
     },

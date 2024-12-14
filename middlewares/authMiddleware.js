@@ -68,7 +68,7 @@ exports.checkCurrentlyAdmin = asyncHandler(async (req, res, next) => {
 
   if (!currentlyAdmin) {
     return next(
-      new ApiError(`Pas d'admin pour cet identifiant : ${id}`, 404)
+      new ApiError(`Pas d'utilisateur pour cet identifiant : ${id}`, 404)
     );
   }
   if (currentlyAdmin._id.toString() == req.user._id.toString()) {

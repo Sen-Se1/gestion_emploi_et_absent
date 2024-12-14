@@ -7,7 +7,7 @@ const absenceSchema = new mongoose.Schema(
       ref: "Utilisateur",
       required: true
     },
-    Emploi_id: {
+    emploi_id: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "EmploiCours",
       required: true
@@ -16,13 +16,15 @@ const absenceSchema = new mongoose.Schema(
       type: Date,
       required: true
     },
-    justifie: {//false 
+    justifie: {
       type: Boolean,
-      required: true
+      required: true,
+      default: false
     },
-    motif: {//null 
+    motif: {
       type: String,
-      trim: true
+      trim: true,
+      default: null
     },
   },
   {

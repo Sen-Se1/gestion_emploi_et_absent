@@ -56,16 +56,15 @@ exports.addNewUser = asyncHandler(async (req, res, next) => {
 // @access  Private 'Admin only'
 exports.getAllEtudiants = asyncHandler(async (req, res, next) => {
 
-    const etudiantCount = await Etudiant.countDocuments({ role: "Etudiant" });
-    const Etudiants = await Etudiant.find({ role: "Etudiant" });
+    const etudiants = await Etudiant.find({ role: "Etudiant" });
 
-    Etudiants.forEach((etudiant) => {
+    etudiants.forEach((etudiant) => {
         delete etudiant._doc.mot_de_passe;
     });
 
     res.status(200).json({
-        result: { etudiantCount: etudiantCount },
-        data: { Etudiants: Etudiants },
+        result:  etudiants.length ,
+        data: etudiants ,
     });
 });
 
@@ -74,16 +73,32 @@ exports.getAllEtudiants = asyncHandler(async (req, res, next) => {
 // @access  Private 'Admin only'
 exports.getAllEnseignants = asyncHandler(async (req, res, next) => {
 
-    const enseignantCount = await Enseignant.countDocuments({ role: "Enseignant" });
-    const Enseignants = await Enseignant.find({ role: "Enseignant" });
+    const enseignants = await Enseignant.find({ role: "Enseignant" });
 
-    Enseignants.forEach((enseignant) => {
+    enseignants.forEach((enseignant) => {
         delete enseignant._doc.mot_de_passe;
     });
 
     res.status(200).json({
-        result: { enseignantCount: enseignantCount },
-        data: { Enseignants: Enseignants },
+        result: enseignants.length,
+        data: enseignants,
+    });
+});
+
+// @desc    Get All Enseignants
+// @route   GET /api/admin/directeur
+// @access  Private 'Admin only'
+exports.getAllDirecteurs = asyncHandler(async (req, res, next) => {
+
+    const directeurs = await Etudiant.find({ role: "Admin" });
+
+    directeurs.forEach((directeur) => {
+        delete directeur._doc.mot_de_passe;
+    });
+
+    res.status(200).json({
+        result: directeurs.length,
+        data: directeurs,
     });
 });
 

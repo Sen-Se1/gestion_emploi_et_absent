@@ -8,6 +8,7 @@ const Salle = require("../../models/salleModel");
 const Parcours = require("../../models/parcoursModel");
 const Matiere = require("../../models/matiereModel");
 const Classe = require("../../models/classeModel");
+const InscriptionClasse = require("../../models/inscriptionClasseModel");
 
 const departementDummyData = [
     { nom: "Informatique", directeur_id: "674b510e2428be3f8d56fdc9" },
@@ -49,6 +50,14 @@ const classeDummyData = [
     { nom: "Classe 3A", annee_academique: "2023-2024", parcours_id: "674c748c89d50920e920248d" },
 ];
 
+const inscriptionClasseDummyData = [
+    { classe_id: "674c7b2720e852ab414a639b", etudiant_id: "6749f43f09936a7e03cbf84d", annee_inscription: "2023-2024" },
+    { classe_id: "674c7b2720e852ab414a639b", etudiant_id: "6749f43f09936a7e03cbf84d", annee_inscription: "2023-2024" },
+    { classe_id: "674c7b2720e852ab414a639b", etudiant_id: "6749f43f09936a7e03cbf84d", annee_inscription: "2023-2024" },
+    { classe_id: "674c7b2720e852ab414a639b", etudiant_id: "6749f43f09936a7e03cbf84d", annee_inscription: "2023-2024" },
+    { classe_id: "674c7b2720e852ab414a639b", etudiant_id: "6749f43f09936a7e03cbf84d", annee_inscription: "2023-2024" },
+];
+
 mongoose
     .connect(DB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(async () => {
@@ -69,6 +78,9 @@ mongoose
         
         // await Classe.insertMany(classeDummyData);
         // console.log("Dummy data for Classe inserted successfully!");
+
+        // await InscriptionClasse.insertMany(inscriptionClasseDummyData);
+        // console.log("Dummy data for InscriptionClasse inserted successfully!");
 
         mongoose.connection.close();
     })

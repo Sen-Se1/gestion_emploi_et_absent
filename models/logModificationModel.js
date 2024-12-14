@@ -29,4 +29,4 @@ const logModificationSchema = new mongoose.Schema(
 
 const LogModification = mongoose.model("LogModification", logModificationSchema);
 
-module.exports = LogModification;
+module.exports = LogModification; 

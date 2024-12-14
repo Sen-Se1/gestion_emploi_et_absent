@@ -17,7 +17,7 @@ const emploiCoursSchema = new mongoose.Schema(
       ref: "Salle",
       required: true
     },
-    Matiere_id: {
+    matiere_id: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "Matiere",
       required: true
